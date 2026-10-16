@@ -1,0 +1,99 @@
+@use "../helpers" as *;
+@use "../variables" as *;
+
+.landings {
+  padding-block: to-rem(100);
+
+  @include respond-to("tablet") {
+    padding-block: to-rem(80) to-rem(60);
+  }
+
+  &__title {
+    font-size: to-rem(40);
+    font-weight: 700;
+    line-height: 1.2;
+    color: $black-color;
+    margin-bottom: to-rem(25);
+
+    @include respond-to("tablet") {
+      font-size: to-rem(32);
+      text-align: center;
+      margin-bottom: to-rem(32);
+    }
+  }
+
+  &__grid {
+    @include grid(3, 16);
+
+    @include respond-to("tablet") {
+      @include grid(2, 24);
+    }
+
+    @include respond-to("mobile") {
+      @include grid(1, 32);
+    }
+  }
+}
+
+.card-landing {
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  border-radius: to-rem(6);
+  overflow: hidden;
+  transition: $transition-base;
+
+  @include hover {
+    box-shadow: 0 to-rem(20) to-rem(40) rgba(0, 0, 0, 0.08);
+
+    .card-landing__preview img {
+      transform: scale(1.03);
+    }
+
+    .card-landing__name {
+      color: $accent-color;
+    }
+  }
+
+  &__head {
+    background-color: $black-color;
+    padding-inline: to-rem(40);
+    padding-top: to-rem(40);
+    width: 100%;
+    overflow: hidden;
+  }
+
+  &__preview {
+    width: 100%;
+    height: to-rem(334);
+    overflow: hidden;
+    border-top-left-radius: to-rem(6);
+    border-top-right-radius: to-rem(6);
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      transition: transform $transition-duration ease-in-out;
+    }
+  }
+
+  &__footer {
+    width: 100%;
+    height: to-rem(77);
+    background-color: $white-color;
+
+    @include flex(row, flex-start, center);
+    padding-inline: to-rem(32);
+  }
+
+  &__name {
+    font-size: to-rem(20);
+    font-weight: 700;
+    line-height: 1.4;
+    color: $black-color;
+    transition: color $transition-duration ease-in-out;
+  }
+}

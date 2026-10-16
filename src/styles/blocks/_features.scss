@@ -1,0 +1,63 @@
+@use "../helpers" as *;
+@use "../variables" as *;
+
+.features {
+  padding-block: to-rem(80);
+  background-color: $white-color;
+
+  @include respond-to("tablet") {
+    padding-block: to-rem(40) to-rem(30);
+  }
+
+  &__grid {
+    @include grid(3, 16);
+
+    @include respond-to("tablet") {
+      @include grid(1, 48);
+    }
+  }
+}
+
+.card-feature {
+  @include flex(row, flex-start, flex-start, 24);
+
+  @include respond-to("tablet") {
+    @include flex(column, center, center, 16);
+    text-align: center;
+  }
+
+  &__icon {
+    @include flex(row, center, center);
+    width: to-rem(100);
+    height: to-rem(100);
+    background-color: $bg-beige;
+    flex-shrink: 0;
+
+    img {
+      width: to-rem(48);
+      height: to-rem(48);
+    }
+  }
+
+  &__body {
+    @include flex(column, flex-start, flex-start);
+
+    @include respond-to("tablet") {
+      align-items: center;
+    }
+  }
+
+  &__title {
+    font-size: to-rem(24);
+    line-height: 1.33;
+    font-weight: 700;
+    color: $black-color;
+    margin-bottom: to-rem(13);
+  }
+
+  &__text {
+    font-size: to-rem(16);
+    line-height: 1.5;
+    max-width: to-rem(257);
+  }
+}

@@ -1,0 +1,89 @@
+@use "../helpers" as *;
+@use "../variables" as *;
+
+.testimonials {
+  background-color: $black-color;
+  color: $white-color;
+  height: to-rem(603);
+
+  @include flex(column, center, center);
+
+  @include respond-to("tablet") {
+    height: auto;
+    padding-block: to-rem(80) to-rem(60);
+  }
+
+  &__container {
+    width: 100%;
+    @include flex(column, center, center, 40);
+  }
+
+  &__slider {
+    width: 100%;
+    max-width: to-rem(800);
+  }
+}
+
+.testimonial-card {
+  @include flex(column, center, center);
+  text-align: center;
+
+  &__logo {
+    margin-bottom: to-rem(39);
+
+    img {
+      display: block;
+      height: auto;
+      object-fit: contain;
+    }
+  }
+
+  &__quote {
+    max-width: to-rem(576);
+    font-weight: 400;
+    line-height: 1.2;
+    text-align: center;
+    margin-bottom: to-rem(41);
+
+    @include fluid-text(40, 20);
+  }
+
+  &__author {
+    @include flex(column, center, center, 4);
+    font-style: normal;
+  }
+
+  &__name {
+    font-size: to-rem(18);
+    font-weight: 700;
+    line-height: 1.5;
+    color: $white-color;
+  }
+
+  &__position {
+    font-size: to-rem(16);
+    line-height: 1.5;
+    color: $white-70;
+  }
+}
+
+.pagination-dots {
+  @include flex(row, center, center, 6);
+
+  &__item {
+    width: to-rem(16);
+    height: to-rem(16);
+    background-color: $white-40;
+    border: none;
+    padding: 0;
+    transition: $transition-base;
+
+    &--active {
+      background-color: $white-color;
+    }
+
+    @include hover {
+      background-color: $white-color;
+    }
+  }
+}

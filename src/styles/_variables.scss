@@ -1,0 +1,31 @@
+@use "helpers/functions" as *;
+
+// Сетка
+$container-width: 1440;
+$container-padding-x: 80;
+
+// Анимации
+$transition-duration: 0.3s;
+$transition-base: all $transition-duration ease-in-out;
+
+// Шрифты
+$font-family: "Roboto", sans-serif;
+
+// ==========================================================================
+// ЦВЕТОВАЯ ПАЛИТРА (UI-KIT) — ПРОЕКТ BLANKO
+// ==========================================================================
+
+$white-color: #fff;
+$black-color: #000;
+
+$accent-color: #ff7143;
+$accent-dark-color: #ff7043;
+
+$bg-beige: #fde7da;
+
+$black-16: rgba(0, 0, 0, 0.16);
+$white-70: rgba(255, 255, 255, 0.7);
+$white-40: rgba(255, 255, 255, 0.4);
+$white-16: rgba(255, 255, 255, 0.16);
+$white-12: rgba(255, 255, 255, 0.12);
+$white-10: rgba(255, 255, 255, 0.1);

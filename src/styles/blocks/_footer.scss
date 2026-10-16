@@ -1,0 +1,136 @@
+@use "sass:color";
+@use "../helpers" as *;
+@use "../variables" as *;
+
+.footer {
+  background-color: $black-color;
+  color: $white-color;
+  height: to-rem(334);
+  padding-block: to-rem(48);
+  border-top: 1px solid $white-16;
+
+  @include respond-to("tablet") {
+    height: auto;
+    padding-block: to-rem(60) to-rem(40);
+  }
+
+  &__container {
+    height: 100%;
+    @include flex(column, space-between, stretch);
+
+    @include respond-to("tablet") {
+      @include flex(column, center, center, 40);
+    }
+  }
+
+  &__row {
+    @include flex(row, space-between, center);
+    width: 100%;
+
+    @include respond-to("tablet") {
+      @include flex(column, center, center, 24);
+    }
+
+    &--middle {
+      border-bottom: 1px solid $white-16;
+      padding-bottom: to-rem(40);
+    }
+  }
+
+  &__btn {
+    @include flex(row, center, center, $isInline: true);
+    height: to-rem(48);
+    padding-inline: to-rem(32);
+    background-color: $white-color;
+    color: $black-color;
+    font-weight: 700;
+    font-size: to-rem(16);
+    line-height: 1.5;
+    border-radius: to-rem(6);
+    transition: $transition-base;
+
+    @include hover {
+      background-color: rgba($white-color, 0.9);
+      transform: translateY(to-rem(-1));
+    }
+
+    @include respond-to("tablet") {
+      width: 100%;
+      max-width: to-rem(280);
+    }
+  }
+
+  &__list {
+    @include flex(row, flex-start, center, 24);
+
+    @include respond-to("tablet") {
+      @include flex(column, center, center, 16);
+    }
+  }
+
+  &__link,
+  &__contact {
+    font-size: to-rem(16);
+    line-height: 1.5;
+    color: $white-color;
+    transition: color $transition-duration ease-in-out;
+
+    @include hover {
+      color: $white-70;
+    }
+  }
+
+  &__copy {
+    font-size: to-rem(16);
+    line-height: 1.5;
+    color: $white-color;
+    @include flex(row, flex-start, center, 12);
+
+    @include respond-to("tablet") {
+      @include flex(column, center, center, 8);
+      order: 2;
+    }
+  }
+
+  &__copy-link {
+    color: $white-color;
+    font-weight: 700;
+
+    &--accent {
+      color: $accent-color;
+    }
+
+    @include hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.social-links {
+  @include flex(row, flex-end, center, 8);
+
+  @include respond-to("tablet") {
+    @include flex(row, center, center, 16);
+    order: 1;
+  }
+
+  &__item {
+    @include flex(row, center, center);
+    width: to-rem(48);
+    height: to-rem(48);
+    background-color: $white-10;
+    border: 1px solid $white-16;
+    color: $white-color;
+    transition: $transition-base;
+
+    svg {
+      fill: currentColor;
+    }
+
+    @include hover {
+      color: $white-color;
+      background-color: $white-16;
+      border-color: $white-40;
+    }
+  }
+}

@@ -1,0 +1,118 @@
+@use "sass:color";
+@use "../helpers" as *;
+@use "../variables" as *;
+
+.hero {
+  background-color: $accent-color;
+  color: $black-color;
+  height: to-rem(732);
+  @include flex(row, center, center);
+
+  overflow: visible;
+  position: relative;
+
+  @include respond-to("tablet") {
+    height: auto;
+    padding-block: to-rem(60);
+    overflow: hidden;
+  }
+
+  &__container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    @include flex(row, flex-start, center);
+
+    @include respond-to("tablet") {
+      @include flex(column, center, center, 40);
+    }
+  }
+
+  &__content {
+    @include flex(column, center, center);
+    width: 50%;
+    max-width: to-rem(632);
+    z-index: 2;
+
+    @include respond-to("tablet") {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+
+  &__title {
+    max-width: to-rem(556);
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: to-rem(27);
+    text-align: center;
+    @include fluid-text(72, 36, 1);
+  }
+
+  &__text {
+    max-width: to-rem(587);
+    font-size: to-rem(18);
+    line-height: 1.5;
+    text-align: center;
+    margin-bottom: to-rem(32);
+
+    @include respond-to("mobile") {
+      font-size: to-rem(16);
+    }
+  }
+
+  &__actions {
+    @include flex(row, center, center, 8);
+
+    @include respond-to("mobile") {
+      width: 100%;
+      @include flex(column, center, stretch, 12);
+    }
+  }
+
+  &__btn {
+    @include flex(row, center, center, $isInline: true);
+    height: to-rem(64);
+    padding-inline: to-rem(32);
+    font-weight: 700;
+    font-size: to-rem(18);
+    line-height: 1.33;
+    border-radius: to-rem(6);
+    white-space: nowrap;
+
+    &--primary {
+      background-color: $black-color;
+      color: $white-color;
+      @include hover {
+        background-color: rgba(0, 0, 0, 0.85);
+      }
+    }
+
+    &--secondary {
+      background-color: $white-color;
+      color: $black-color;
+      @include hover {
+        background-color: $bg-beige;
+      }
+    }
+  }
+
+  &__preview {
+    position: absolute;
+    bottom: to-rem(-23);
+    right: to-rem(80);
+    z-index: 5;
+    display: block;
+
+    @include respond-to("tablet") {
+      display: none;
+    }
+
+    img {
+      display: block;
+      width: to-rem(417);
+      height: to-rem(860);
+      object-fit: contain;
+    }
+  }
+}
